@@ -65,10 +65,5 @@ public class App {
         System.out.println(nome);
         System.out.println(" ");
 
-
-
-
-
-
     }
 }

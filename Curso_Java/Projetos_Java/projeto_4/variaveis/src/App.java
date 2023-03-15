@@ -63,7 +63,6 @@ public class App {
 
         System.out.println("Variaveis do tipo string");
         System.out.println(nome);
-        System.out.println(" ");
-
+        
     }
 }

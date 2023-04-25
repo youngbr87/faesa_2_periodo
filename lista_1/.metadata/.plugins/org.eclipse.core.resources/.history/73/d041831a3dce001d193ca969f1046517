@@ -1,0 +1,19 @@
+package cad_cliente;
+
+public class Cliente {
+	
+	private String nome;
+	private String endereco;
+	private String cpf;
+	private String telefone;
+	private String email;
+	private String codigo;
+	
+		
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

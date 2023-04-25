@@ -1,0 +1,57 @@
+package cad_cliente;
+
+import java.util.*;
+
+public class Main {
+	
+	private static final Scanner ENTRADA = new Scanner(System.in);
+	private static final List<Cliente> CLIENTES = new ArrayList<>();
+
+	public static void main(String[] args) {
+		Main main = new Main();
+		main.start ();
+		
+	}
+			
+	private void start() {
+		
+		int option;
+		
+		
+		do {
+			option = menu();
+			switch (option) {
+				case 1:
+					salvar();
+					break;
+			}
+	   
+	  }while (option != 0);
+}		
+		
+		
+	private void salvar() {
+		
+		Cliente cliente = new Cliente();
+		
+		System.out.println("Digite um código para o cliente: ");
+		cliente.setCodigo(Long.parseLong(ENTRADA.nextLine()));
+		
+		CLIENTES.add(cliente);
+	}
+	
+	private int menu() {
+		System.out.println("    ----------------------------------------------       ");
+		System.out.println("           C A D A S T R O   D E   CLIENTES              ");
+		System.out.println("");
+		System.out.println("         1 - CADASTRAR NOVO CLIENTE                      ");
+		System.out.println("         2 - ATUALIZAR CADASTRO DO CLIENTE               ");
+		System.out.println("         3 - REMOVER CLIENTE                             ");
+		System.out.println("         4 - LISTAR CLIENTES                             ");
+		System.out.println("         5 - LISTAR CLIENTE POR CÓDIGO                   ");
+		System.out.println("    ----------------------------------------------       ");
+		System.out.print("--> ");
+	    return Integer.parseInt(ENTRADA.nextLine());
+		}
+
+}

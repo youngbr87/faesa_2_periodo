@@ -1,0 +1,30 @@
+package lista_exercicio_8_lp2;
+
+import java.util.*;
+public class main {
+
+	public static void main(String[] args) {
+		/*
+		 * Desenvolva um algoritmo em Java que leia um número inteiro e imprima o seu antecessor e seu sucessor.
+		 * 
+		 */
+
+		Scanner in = new Scanner(System.in);
+		
+		int $num, $ant, $suc;
+		
+		System.out.print("Digite um número inteiro -> ");
+		$num = in.nextInt();
+		
+		//calculos
+		
+		$ant = $num - 1;
+		$suc = $num + 1;
+		
+		System.out.println("O número anterior do digitado é: " + $ant + " e o numéro sucessor é: " + $suc);
+		
+		in.close();
+		
+	}
+
+}

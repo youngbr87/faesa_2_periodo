@@ -1,0 +1,63 @@
+package teste_grafico;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class DistanciaEntrePontosGUI extends JFrame {
+   private JLabel x1Label, y1Label, x2Label, y2Label, resultadoLabel;
+   private JTextField x1Field, y1Field, x2Field, y2Field, resultadoField;
+   private JButton calcularButton;
+
+   public DistanciaEntrePontosGUI() {
+      super("Calculadora de Distância Entre Pontos");
+      setLayout(new GridLayout(6, 2));
+
+      x1Label = new JLabel("Entre com o valor de x1: ");
+      add(x1Label);
+      x1Field = new JTextField(10);
+      add(x1Field);
+
+      y1Label = new JLabel("Entre com o valor de y1: ");
+      add(y1Label);
+      y1Field = new JTextField(10);
+      add(y1Field);
+
+      x2Label = new JLabel("Entre com o valor de x2: ");
+      add(x2Label);
+      x2Field = new JTextField(10);
+      add(x2Field);
+
+      y2Label = new JLabel("Entre com o valor de y2: ");
+      add(y2Label);
+      y2Field = new JTextField(10);
+      add(y2Field);
+
+      calcularButton = new JButton("Calcular");
+      add(calcularButton);
+      calcularButton.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            double x1 = Double.parseDouble(x1Field.getText());
+            double y1 = Double.parseDouble(y1Field.getText());
+            double x2 = Double.parseDouble(x2Field.getText());
+            double y2 = Double.parseDouble(y2Field.getText());
+
+            double distancia = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+            resultadoField.setText(Double.toString(distancia));
+         }
+      });
+
+      resultadoLabel = new JLabel("Distância: ");
+      add(resultadoLabel);
+      resultadoField = new JTextField(10);
+      resultadoField.setEditable(false);
+      add(resultadoField);
+   }
+
+   public static void main(String[] args) {
+      DistanciaEntrePontosGUI distanciaGUI = new DistanciaEntrePontosGUI();
+      distanciaGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      distanciaGUI.setSize(400, 200);
+      distanciaGUI.setVisible(true);
+   }
+}

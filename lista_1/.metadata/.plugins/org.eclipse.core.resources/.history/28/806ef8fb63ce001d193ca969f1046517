@@ -1,0 +1,105 @@
+package cad_cliente;
+
+import java.util.*;
+
+public class Main {
+	
+	private static final Scanner ENTRADA = new Scanner(System.in);
+	private static final List<Cliente> CLIENTES = new ArrayList<>();
+
+	public static void main(String[] args) {
+		Main main = new Main();
+		main.start ();
+		
+	}
+			
+	private void start() {
+		
+		int option;
+		
+		
+		do {
+			option = menu();
+			switch (option) {
+				case 1:
+					salvar();
+					break;
+				case 2:
+					editar();
+					break;
+				case 4:
+					listarTodos();
+					break;
+			}
+	   
+	  }while (option != 0);
+}		
+		
+		
+	private void salvar() {
+		
+		Cliente cliente = new Cliente();
+		
+		System.out.print("Digite um código para o cliente: ");
+		cliente.setCodigo(Long.parseLong(ENTRADA.nextLine()));
+		
+		System.out.print("Digite o nome: ");
+		cliente.setNome((ENTRADA.nextLine()));
+		
+		System.out.print("Digite o endereço: ");
+		cliente.setEndereco((ENTRADA.nextLine()));
+		
+		System.out.print("Digite o CPF: ");
+		cliente.setCpf((ENTRADA.nextLine()));
+		
+		System.out.print("Digite o telefone: ");
+		cliente.setTelefone((ENTRADA.nextLine()));
+		
+		System.out.print("Digite o e-mail: ");
+		cliente.setEmail((ENTRADA.nextLine()));
+
+			
+		CLIENTES.add(cliente);
+	}
+	
+	private void editar() {
+		System.out.print("Digite o codigo do cliente -> ");
+		Cliente cliente = new Cliente();
+		cliente.setCodigo(Long.parseLong(ENTRADA.nextLine()));
+		
+		int clienteIndex = CLIENTES.indexOf(cliente);
+		
+		if (clienteIndex > -1) {
+			cliente = CLIENTES.get(clienteIndex);
+			
+			System.out.print("Digite o codigo do cliente -> ");
+			cliente.setNome();
+			
+		}else {
+			System.out.println("Código não encontrado.");
+		}
+	}
+	
+	
+	private void listarTodos( ) {
+		System.out.println("LISTA DE TODOS OS CLIENTES");
+		for (Cliente cliente: CLIENTES) {
+			System.out.println(cliente);
+		}
+	}
+	
+	private int menu() {
+		System.out.println("      -------------------------------------------------   ");
+		System.out.println("      |     C A D A S T R O   D E   C L I E N T E S   |   ");
+		System.out.println("      |                                               |   ");
+		System.out.println("      |   1 - CADASTRAR NOVO CLIENTE                  |   ");
+		System.out.println("      |   2 - ATUALIZAR CADASTRO DO CLIENTE           |   ");
+		System.out.println("      |   3 - REMOVER CLIENTE                         |   ");
+		System.out.println("      |   4 - LISTAR CLIENTES                         |   ");
+		System.out.println("      |   5 - LISTAR CLIENTE POR CÓDIGO               |   ");
+		System.out.println("      -------------------------------------------------   ");
+		System.out.print("          Digite a opção desejada --> ");
+	    return Integer.parseInt(ENTRADA.nextLine());
+		}
+
+}
